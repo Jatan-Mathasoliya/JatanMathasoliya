@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "motion/react";
 import React, { useRef, useState, useEffect } from "react";
 import { TextHoverEffect } from "./text-hover-effect";
 import { TextGenerateEffect } from "./text-generate-effect";
+import { useNavigate } from "react-router-dom";
 
 export const BackgroundBeamsWithCollision = ({
     children,
@@ -11,6 +12,7 @@ export const BackgroundBeamsWithCollision = ({
 }) => {
     const containerRef = useRef(null);
     const parentRef = useRef(null);
+    const navigate = useNavigate();
 
     const beams = [
         {
@@ -76,7 +78,9 @@ export const BackgroundBeamsWithCollision = ({
             {/* Centered TextHoverEffect and Button */}
             <div className="flex flex-col items-center justify-center">
                 <TextHoverEffect text="JATAN" />
-                <button className="mb-16 relative inline-flex h-50 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                <button
+                onClick={()=>navigate('/about')}
+                className="mb-16 relative inline-flex h-50 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
                     <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
                     <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
                         Know Me

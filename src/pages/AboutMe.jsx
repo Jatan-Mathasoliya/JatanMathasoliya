@@ -247,13 +247,15 @@ const AboutMe = () => {
                             <span className="text-xl font-bold text-white bg-gradient-to-r from-purple-500 to-blue-400 px-6 py-2 rounded-md shadow-lg">
                                 Tech isn’t just my skill—it’s my playground. Let’s build something amazing.
                             </span>
-                            <div className="flex items-center gap-5">
+                            <div className="flex items-center justify-center gap-5">
                                 <button
-                                    className="flex items-center rounded-full border border-[#414141] px-3 py-1.5 gap-1.5"
                                     onClick={() => navigate('/projects')}
-                                >
-                                    <Telescope color="#ffffff" />
-                                    <span>Explore My Work</span>
+                                    className="relative inline-flex overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                                    <span className="inline-flex gap-2 h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+                                        <Telescope color="#ffffff" />
+                                        Explore my Work
+                                    </span>
                                 </button>
                                 <a
                                     href="https://drive.google.com/file/d/1BWrg0mpssouKpAxz28YyOK-efd986zzA/view?usp=sharing"
