@@ -160,9 +160,8 @@ export function ExpandableCardDemo() {
             </div>
 
             {/* Cards List */}
-            <div className="max-w-4xl mx-auto w-full px-4">
-
-                <ul className="max-w-2xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="max-w-6xl mx-auto w-full px-4">
+                <ul className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredCards.length > 0 ? (
                         filteredCards.map((card) => (
                             <motion.div
@@ -170,27 +169,28 @@ export function ExpandableCardDemo() {
                                 key={card.title}
                                 onClick={() => setActive(card)}
                                 className="p-4 flex flex-col bg-white dark:bg-neutral-900 rounded-xl shadow-lg 
-                        hover:shadow-2xl hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
+                    hover:shadow-2xl hover:scale-[1.02] transition-transform duration-300 cursor-pointer
+                    h-full min-h-[400px]" // Added height constraints
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 exit={{ opacity: 0, y: -20 }}
                                 transition={{ duration: 0.3 }}
                             >
-                                <motion.div layoutId={`image-${card.title}-${id}`}>
+                                <motion.div layoutId={`image-${card.title}-${id}`} className="flex-shrink-0">
                                     <img
                                         width={100}
                                         height={100}
                                         src={card.src}
                                         alt={card.title}
-                                        className="h-60 w-full rounded-lg object-cover object-top"
+                                        className="w-full h-90 object-cover rounded-lg" // Fixed image height
                                     />
                                 </motion.div>
 
-                                <div className="flex flex-col items-center mt-3">
+                                <div className="flex flex-col flex-grow mt-3 px-2"> {/* Added padding and flex-grow */}
                                     <div className="flex items-center justify-between w-full mb-2">
                                         <motion.h3
                                             layoutId={`title-${card.title}-${id}`}
-                                            className="font-medium text-neutral-800 dark:text-neutral-200 text-lg"
+                                            className="font-medium text-neutral-800 dark:text-neutral-200 text-lg line-clamp-1" /* Added line clamp */
                                         >
                                             {card.title}
                                         </motion.h3>
@@ -203,15 +203,18 @@ export function ExpandableCardDemo() {
                                     </div>
                                     <motion.p
                                         layoutId={`description-${card.description}-${id}`}
-                                        className="text-neutral-600 dark:text-neutral-400 text-base text-center"
+                                        className="text-neutral-600 dark:text-neutral-400 text-sm line-clamp-3 flex-grow" /* Added line clamp and flex-grow */
                                     >
                                         {card.description}
                                     </motion.p>
+                                    <div className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
+                                        Click to view details
+                                    </div>
                                 </div>
                             </motion.div>
                         ))
                     ) : (
-                        <div className="col-span-2 text-center py-12">
+                        <div className="col-span-3 text-center py-12">
                             <p className="text-neutral-600 dark:text-neutral-400">No projects found for this category.</p>
                         </div>
                     )}
@@ -324,7 +327,7 @@ const cards = [
         title: "AgriAuthentic Farmer Dashboard",
         description: "A perfect modern farmer dashboard with all features and funcnalities.",
         category: "frontend",
-        src: "https://sdmntpraustraliaeast.oaiusercontent.com/files/00000000-3ef8-61fa-bb96-4c3fa5d3ff9c/raw?se=2025-04-21T19%3A17%3A00Z&sp=r&sv=2024-08-04&sr=b&scid=d68fc13a-0d35-5bc2-adb3-460c19b75f15&skoid=a3336399-497e-45e5-8f28-4b88ecca3d1f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-21T16%3A25%3A58Z&ske=2025-04-22T16%3A25%3A58Z&sks=b&skv=2024-08-04&sig=PIMCU0zL1qij9GocsedGRYmiClPNVnbUsPF7dSZ2SiA%3D",
+        src: "https://res.cloudinary.com/dv0dqqcbi/image/upload/v1745687043/Farmer_Using_AgriAuthentic_Dashboard_wp0ccy.png",
         ctaText: "Visit",
         ctaLink: "https://agriauthentic-farmer-dashboard.onrender.com",
         githubLink: "https://github.com/Jatan-Mathasoliya/AgriAuthentic_Farmer_Dashboard",
@@ -400,7 +403,7 @@ const cards = [
         title: "AgriAuthentic Farmer Dashboard Python API",
         description: "Microservices API gateway with fetures like random farm data generation and also check Data in AI model for verifying Natural Farming.",
         category: "backend",
-        src: "https://sdmntprwestus2.oaiusercontent.com/files/00000000-1ab8-61f8-a3d8-76cca949a2a5/raw?se=2025-04-21T18%3A53%3A03Z&sp=r&sv=2024-08-04&sr=b&scid=2eff742e-82f4-5a66-9776-c5fc78349579&skoid=a3336399-497e-45e5-8f28-4b88ecca3d1f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-21T09%3A24%3A25Z&ske=2025-04-22T09%3A24%3A25Z&sks=b&skv=2024-08-04&sig=/D6vNacPRq9Fh7Q449TP0yZQg91CmXq6fCGxpRibBYQ%3D",
+        src: "https://res.cloudinary.com/dv0dqqcbi/image/upload/v1745687047/Panel_de_Datos_del_Agricultor_rrbko1.png",
         ctaText: "Documentation",
         ctaLink: "https://example.com/api-docs",
         githubLink: "https://github.com/Jatan-Mathasoliya/AgriAuthentic_Python_dashboard_api",

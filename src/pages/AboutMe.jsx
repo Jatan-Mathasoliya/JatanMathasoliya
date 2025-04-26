@@ -43,7 +43,7 @@ const AboutMe = () => {
                             <div className="flex items-center justify-between mt-1">
                                 <span className="text-gray-400">B-Tech in Computer Science Engineering</span>
                                 <span className="font-semibold text-white">
-                                    SGPA : 9.81 - 1 sem
+                                    SGPA : 9.81
                                 </span>
                             </div>
                         </div>

@@ -11,8 +11,8 @@ function Projects() {
     }, []);
 
     return (
-        <div className="relative w-full min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
-            
+        
+        <div className="relative w-full min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white"> 
             <div className="fixed inset-0 overflow-hidden pointer-events-none">
                 {[...Array(3)].map((_, i) => (
                     <div 
